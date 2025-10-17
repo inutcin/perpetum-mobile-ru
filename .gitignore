@@ -1,0 +1,6 @@
+.env
+*.cache
+*.lock
+*.tmp
+.idea
+.vscode

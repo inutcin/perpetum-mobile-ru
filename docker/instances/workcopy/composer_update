@@ -1,0 +1,6 @@
+#!/bin/bash
+export HOST_UID=`id -u`
+
+docker-compose exec app bash /composer_update.sh
+chown -R $HOST_UID:root ../../../engine/vendor 
+

@@ -1,0 +1,27 @@
+version: "2.2"
+services:
+  app:
+    build: 
+      context: ../../../..
+      dockerfile: docker/instances/workcopy/dockerfiles/app.Dockerfile
+      args: 
+        - HOST_UID=$HOST_UID
+    tty: 
+      true
+    environment:
+      # Ключ приложения
+      APP_KEY: $APP_KEY
+      APP_ENV: $APP_ENV
+      APP_DEBUG: $APP_DEBUG
+
+      # Пользователь и пароль ко всем БД всех кластеров, кроме внешней БД
+      DB_USERNAME: $DB_USER
+      DB_PASSWORD: $DB_PASS
+
+      # Уровень отладки и место записи лога
+      LOG_CHANNEL: $LOG_CHANNEL
+
+    networks:
+      net:
+    volumes:
+      - ../../../../engine:/var/www/html
