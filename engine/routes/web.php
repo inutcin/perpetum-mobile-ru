@@ -14,8 +14,7 @@ use activecitizen\marketplace as marketplace;
 */
 
 Route::get('/', function () {
-    return "OK";
-    return view('welcome');
+    return view('themes.default.pages.index');
 });
 
 
